@@ -86,16 +86,16 @@ Item {
         interval: 1000/60
         running: false
         onTriggered: {
-            if (player.y < 0) {
+            if (player.y < 0 && accelerate < 0) {
                 console.log(" до птица уперлась в потолок", player.y)
                 player.y = player.y - 100
-                accelerate+=100
+                accelerate = 0
 
                 console.log("после птица уперлась в потолок", player.y)
                 //accelerate = math.sqrt(accelerate*accelerate)
             }
 
-            if (player.y > maxY) {
+            if (player.y > maxY && accelerate > 0) {
                 player.y=maxY
                 accelerate = 0
                 //console.log('ниже земли')
